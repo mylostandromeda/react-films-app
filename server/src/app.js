@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const authRouter = require('./api/routers/authRouter');
 const userRouter = require('./api/routers/userRouter');
@@ -15,14 +16,19 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static('../../client/build'));
-
 app.use('/api/auth', authRouter);
 app.use(authMiddleware);
 app.use('/api/user', userRouter);
 app.use('/api/films', filmsRouter);
 app.use('/api/likes', likeRouter);
 app.use('/api/favorites', favoriteRouter);
+
+app.use(express.static('../../client/build'));
+
+app.get('/*', (req, res) => {
+  let url = path.join(__dirname, '../client/build', 'index.html');
+  res.sendFile(url);
+});
 
 app.use((err,
     req,
