@@ -1,5 +1,6 @@
 const express = require('express');
 const router = new express.Router();
+const {authMiddleware} = require('../middlewares/authMiddleware');
 const {
     addLike,
     removeLike,
@@ -7,11 +8,11 @@ const {
 } = require('../controllers/likeController');
 const {asyncWrapper} = require('../../helpers/helpers');
 
-router.get('/', asyncWrapper(getUserLikes));
+router.get('/', authMiddleware, asyncWrapper(getUserLikes));
 
-router.put('/:id', asyncWrapper(addLike));
+router.put('/:id', authMiddleware, asyncWrapper(addLike));
 
-router.delete('/:id', asyncWrapper(removeLike));
+router.delete('/:id', authMiddleware, asyncWrapper(removeLike));
 
 
 module.exports = router;

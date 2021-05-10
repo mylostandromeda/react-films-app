@@ -8,7 +8,6 @@ const filmsRouter = require('./api/routers/filmsRouter');
 const likeRouter = require('./api/routers/likeRouter');
 const favoriteRouter = require('./api/routers/favoriteRouter');
 const ResponseError = require('./errorTypes/ResponseError');
-const {authMiddleware} = require('./api/middlewares/authMiddleware');
 const {PORT, DB_HOSTNAME, DB_NAME, DB_PASS, DB_USER} = require('./config');
 const cors = require('cors');
 const app = express();
@@ -17,7 +16,6 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/auth', authRouter);
-app.use(authMiddleware);
 app.use('/api/user', userRouter);
 app.use('/api/films', filmsRouter);
 app.use('/api/likes', likeRouter);
@@ -26,7 +24,7 @@ app.use('/api/favorites', favoriteRouter);
 app.use(express.static('../../client/build'));
 
 app.get('/*', (req, res) => {
-  let url = path.join(__dirname, '../client/build', 'index.html');
+  let url = path.join(__dirname, '../../client/build', 'index.html');
   res.sendFile(url);
 });
 
