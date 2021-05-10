@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "build": "cd client && npm run build",
+    "install-build": "cd server && npm install",
     "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "npm run install-client && npm run install-build && npm run build",
     "start": " cd server/src && node app.js"
   },
   "author": "artur <artur_verbin@epam.com",
