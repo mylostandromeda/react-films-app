@@ -15,6 +15,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static('../../client/build'));
+
 app.use('/api/auth', authRouter);
 app.use(authMiddleware);
 app.use('/api/user', userRouter);
