@@ -2,7 +2,7 @@
 
 .film {
   display: flex;
-  margin: 0 auto;
+  margin: 80px auto;
 
   &__title {
     font-size: 30px;
@@ -10,6 +10,7 @@
 
   &__info {
     margin-left: 50px;
+    width: 500px;
   }
 
   &__genre {
@@ -29,9 +30,5 @@
   &__description-title {
     margin-top: 50px;
     font-weight: bold;
-  }
-
-  &__description {
-    width: 500px;
   }
 }

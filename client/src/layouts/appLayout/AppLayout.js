@@ -13,7 +13,7 @@ const AppLayout = ({children, title, sider}) => {
         <>
             <Layout className="app-layout">
                 <Header/>
-                <h1 className="app-layout__title">{title}</h1>
+                {title && (<h1 className="app-layout__title">{title}</h1>)}
                 <Layout className="app-layout__content">
                     <Content className="app-layout__form-wrapper">
                         {children}

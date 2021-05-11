@@ -13,7 +13,6 @@ import IntroLayout from "../../layouts/introLayout/IntroLayout";
 const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-
     const onFinish = (formData) => {
         dispatch(signIn(formData, history));
     };

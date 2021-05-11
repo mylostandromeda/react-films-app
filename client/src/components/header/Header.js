@@ -25,17 +25,19 @@ const Header = () => {
             <Header
                 className="header"
             >
-                <img src={logo} alt="logo" onClick={onLogoClick} className="header__logo"/>
-                {isAuthorized && (
-                    <>
-                        <Menu/>
-                        <Popover content={<UserPopover userInfo={user}/>} trigger="click" className="header__popover">
-                            <Avatar size={64}>
-                                {user.firstName[0].toUpperCase()} {user.lastName[0].toUpperCase()}
-                            </Avatar>
-                        </Popover>
-                    </>
-                )}
+                <div className="header__container">
+                    <img src={logo} alt="logo" onClick={onLogoClick} className="header__logo"/>
+                    {isAuthorized && (
+                        <>
+                            <Menu/>
+                            <Popover content={<UserPopover userInfo={user}/>} trigger="click" className="header__popover">
+                                <Avatar size={64}>
+                                    {user.firstName[0].toUpperCase()} {user.lastName[0].toUpperCase()}
+                                </Avatar>
+                            </Popover>
+                        </>
+                    )}
+                </div>
             </Header>
         </>
     );

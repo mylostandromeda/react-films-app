@@ -18,7 +18,7 @@ import {
 const initialState = {
     films: [],
     skip: 0,
-    limit: 30,
+    limit: 28,
     filters: {
         genres: null,
         language: null,

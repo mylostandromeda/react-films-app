@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = process.env.baseURL || 'http://localhost:8080/';
-
 const getHeaders = (skipAuthorization) => {
     const token = localStorage.getItem('token');
     if (token && !skipAuthorization) {
