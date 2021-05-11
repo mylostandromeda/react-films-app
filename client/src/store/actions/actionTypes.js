@@ -23,5 +23,3 @@ export const CLEAR_SEARCH = 'CLEAR_SEARCH';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
 export const SET_FILTER = 'SET_FILTER';
 export const SET_HAS_MORE = 'SET_HAS_MORE';
-export const SET_ERROR = 'SET_ERROR';
-export const CLEAR_ERROR = 'CLEAR_ERROR';
