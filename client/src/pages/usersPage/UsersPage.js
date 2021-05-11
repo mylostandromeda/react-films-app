@@ -20,34 +20,36 @@ const UsersPage = () => {
 
     return (
         <>
-            {isLoading ? (
-                <Loader/>
-            ) : (
-                <AppLayout title="Users">
-                    <div className="users">
-                        <h2>Friends:</h2>
-                        <div className="users__block">
-                            {user.friends.length ? (
-                                user.friends.map((friend, idx) => (
-                                    <UserCard key={idx} userInfo={users.find(user => user._id === friend)}/>
-                                ))
-                            ) : (
-                                <Empty description="No friends"/>
-                            )}
-                        </div>
-                        <h2 style={{marginTop: '50px'}}>All Users:</h2>
-                        <div className="users__block">
-                            {users.length ? (
-                                users.map((user, idx) => (
-                                    <UserCard key={idx} userInfo={user}/>
-                                ))
-                            ) : (
-                                <Empty description="No users"/>
-                            )}
-                        </div>
-                    </div>
-                </AppLayout>
-            )}
+            <AppLayout title="Users">
+                <div className="users">
+                    <h2>Friends:</h2>
+                    {isLoading ? (
+                        <Loader/>
+                    ) : (
+                        <>
+                            <div className="users__block">
+                                {user.friends.length ? (
+                                    user.friends.map((friend, idx) => (
+                                        <UserCard key={idx} userInfo={users.find(user => user._id === friend)}/>
+                                    ))
+                                ) : (
+                                    <Empty description="No friends"/>
+                                )}
+                            </div>
+                            <h2 style={{marginTop: '50px'}}>All Users:</h2>
+                            <div className="users__block">
+                                {users.length ? (
+                                    users.map((user, idx) => (
+                                        <UserCard key={idx} userInfo={user}/>
+                                    ))
+                                ) : (
+                                    <Empty description="No users"/>
+                                )}
+                            </div>
+                        </>
+                    )}
+                </div>
+            </AppLayout>
         </>
     );
 }
