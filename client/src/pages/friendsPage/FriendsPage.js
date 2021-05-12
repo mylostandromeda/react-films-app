@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import './UsersPage.scss';
+import '../usersPage/UsersPage.scss';
 import AppLayout from "../../layouts/appLayout/AppLayout";
 import {useSelector, useDispatch} from 'react-redux';
 import {Empty} from 'antd';
@@ -7,8 +7,9 @@ import {clearUserData, getUsers} from "../../store/actions/users/users";
 import Loader from "../../components/loader/Loader";
 import UserCard from "../../components/userCard/UserCard";
 
-const UsersPage = () => {
+const FriendsPage = () => {
     const {users, isLoading} = useSelector(state => state.users);
+    const {user} = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -18,18 +19,18 @@ const UsersPage = () => {
     },[]);
 
     return (
-        <AppLayout title="All users">
+        <AppLayout title="Friends">
             <div className="users">
                 {isLoading ? (
                     <Loader/>
                 ) : (
                     <div className="users__block">
-                        {users.length ? (
-                            users.map((user, idx) => (
-                                <UserCard key={idx} userInfo={user}/>
+                        {user.friends.length ? (
+                            user.friends.map((friend, idx) => (
+                                <UserCard key={idx} userInfo={users.find(user => user._id === friend)}/>
                             ))
                         ) : (
-                            <Empty description="No users"/>
+                            <Empty description="No friends"/>
                         )}
                     </div>
                 )}
@@ -38,4 +39,4 @@ const UsersPage = () => {
     );
 }
 
-export default UsersPage;
+export default FriendsPage;

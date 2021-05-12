@@ -26,17 +26,15 @@ const UserCard = ({userInfo}) => {
     };
 
     return (
-     <>
-         <div className="users__item" onClick={onUserClick}>
-             <Avatar size={64}>{userInfo.firstName[0].toUpperCase()} {userInfo.lastName[0].toUpperCase()}</Avatar>
-             <h2 className="users__name">{userInfo.firstName} {userInfo.lastName}</h2>
-             {user.friends.includes(userInfo._id) ? (
-                 <FollowButton type="default" onClick={onUnfollowClick} content="Following"/>
-             ) : (
-                 <FollowButton type="primary" onClick={onFollowClick} content="Follow"/>
-             )}
-         </div>
-     </>
+        <div className="users__item" onClick={onUserClick}>
+            <Avatar size={64}>{userInfo.firstName[0].toUpperCase()} {userInfo.lastName[0].toUpperCase()}</Avatar>
+            <h2 className="users__name">{userInfo.firstName} {userInfo.lastName}</h2>
+            {user.friends.includes(userInfo._id) ? (
+                <FollowButton type="default" onClick={onUnfollowClick} content="Following"/>
+            ) : (
+                <FollowButton type="primary" onClick={onFollowClick} content="Follow"/>
+            )}
+        </div>
     );
 };
 

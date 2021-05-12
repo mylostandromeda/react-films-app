@@ -29,80 +29,78 @@ const Register = () => {
     });
 
     return (
-        <>
-            <IntroLayout title="Sign Up">
-                <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
-                    <Form.Item
-                        name="firstName"
-                        rules={[{required: true, message: 'Please input your First Name!'}]}
-                    >
-                        <Input
-                            className="form__input"
-                            prefix={<UserOutlined className="site-form-item-icon"/>}
-                            placeholder="First Name"
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="lastName"
-                        rules={[{required: true, message: 'Please input your Last Name!'}]}
-                    >
-                        <Input
-                            className="form__input"
-                            prefix={<UserOutlined className="site-form-item-icon"/>}
-                            placeholder="Last Name"
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="email"
-                        rules={[
-                            {type: 'email', message: 'The input is not valid E-mail!'},
-                            {required: true, message: 'Please input your E-mail!'}]}
-                    >
-                        <Input
-                            className="form__input"
-                            prefix={<MailOutlined className="site-form-item-icon"/>}
-                            placeholder="Email"
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="password"
-                        rules={[
-                            {required: true, message: 'Please input your password!'}]}
-                        hasFeedback
-                    >
-                        <Input.Password
-                            className="form__input"
-                            prefix={<LockOutlined className="site-form-item-icon"/>}
-                            placeholder="Password"
-                        />
-                    </Form.Item>
-                    <Form.Item
-                        name="confirmPassword"
-                        dependencies={['password']}
-                        hasFeedback
-                        rules={[
-                            {required: true, message: 'Please confirm your password!'},
-                            confirmPasswordValidate
-                        ]}
-                    >
-                        <Input.Password
-                            className="form__input"
-                            prefix={<LockOutlined className="site-form-item-icon"/>}
-                            placeholder="Confirm Password"
-                        />
-                    </Form.Item>
-                    <Form.Item>
-                        <Button className="form__button" type="primary" htmlType="submit">
-                            sign up
-                        </Button>
-                    </Form.Item>
-                    <div>
-                        <p className="form__question">Already have an account?</p>
-                        <Link to="/login" className="form__link">Sign in</Link>
-                    </div>
-                </Form>
-            </IntroLayout>
-        </>
+        <IntroLayout title="Sign Up">
+            <Form form={form} name="register" onFinish={onFinish} scrollToFirstError>
+                <Form.Item
+                    name="firstName"
+                    rules={[{required: true, message: 'Please input your First Name!'}]}
+                >
+                    <Input
+                        className="form__input"
+                        prefix={<UserOutlined className="site-form-item-icon"/>}
+                        placeholder="First Name"
+                    />
+                </Form.Item>
+                <Form.Item
+                    name="lastName"
+                    rules={[{required: true, message: 'Please input your Last Name!'}]}
+                >
+                    <Input
+                        className="form__input"
+                        prefix={<UserOutlined className="site-form-item-icon"/>}
+                        placeholder="Last Name"
+                    />
+                </Form.Item>
+                <Form.Item
+                    name="email"
+                    rules={[
+                        {type: 'email', message: 'The input is not valid E-mail!'},
+                        {required: true, message: 'Please input your E-mail!'}]}
+                >
+                    <Input
+                        className="form__input"
+                        prefix={<MailOutlined className="site-form-item-icon"/>}
+                        placeholder="Email"
+                    />
+                </Form.Item>
+                <Form.Item
+                    name="password"
+                    rules={[
+                        {required: true, message: 'Please input your password!'}]}
+                    hasFeedback
+                >
+                    <Input.Password
+                        className="form__input"
+                        prefix={<LockOutlined className="site-form-item-icon"/>}
+                        placeholder="Password"
+                    />
+                </Form.Item>
+                <Form.Item
+                    name="confirmPassword"
+                    dependencies={['password']}
+                    hasFeedback
+                    rules={[
+                        {required: true, message: 'Please confirm your password!'},
+                        confirmPasswordValidate
+                    ]}
+                >
+                    <Input.Password
+                        className="form__input"
+                        prefix={<LockOutlined className="site-form-item-icon"/>}
+                        placeholder="Confirm Password"
+                    />
+                </Form.Item>
+                <Form.Item>
+                    <Button className="form__button" type="primary" htmlType="submit">
+                        sign up
+                    </Button>
+                </Form.Item>
+                <div>
+                    <p className="form__question">Already have an account?</p>
+                    <Link to="/login" className="form__link">Sign in</Link>
+                </div>
+            </Form>
+        </IntroLayout>
     );
 }
 

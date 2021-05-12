@@ -45,31 +45,30 @@ const UserInfoPage = () => {
     };
 
     return (
-        <>
-            <AppLayout title="User info">
-                {isUserLoading ? (
-                    <Loader/>
-                ) : (pickedUser ? (
-                        <>
-                            <div className="user">
-                                <div className="user__wrapper">
-                                    <Avatar size={80}>
-                                        {pickedUser.firstName[0].toUpperCase()} {pickedUser.lastName[0].toUpperCase()}
-                                    </Avatar>
-                                    <div className="user__info">
-                                        <h2 className="user__name">
-                                            {pickedUser.firstName} {pickedUser.lastName}
-                                        </h2>
-                                        <span className="user__email">{pickedUser.email}</span>
-                                    </div>
-                                    {user.friends.includes(pickedUser._id) ? (
-                                        <FollowButton type="default" onClick={onUnfollowClick} content="Following"/>
-                                    ) : (
-                                        <FollowButton type="primary" onClick={onFollowClick} content="Follow"/>
-                                    )}
+        <AppLayout title="User info">
+            {isUserLoading ? (
+                <Loader/>
+            ) : (pickedUser ? (
+                    <>
+                        <div className="user">
+                            <div className="user__wrapper">
+                                <Avatar size={80}>
+                                    {pickedUser.firstName[0].toUpperCase()} {pickedUser.lastName[0].toUpperCase()}
+                                </Avatar>
+                                <div className="user__info">
+                                    <h2 className="user__name">
+                                        {pickedUser.firstName} {pickedUser.lastName}
+                                    </h2>
+                                    <span className="user__email">{pickedUser.email}</span>
                                 </div>
-                                <h3 className="user__title">Favorites</h3>
-                                {user.friends.includes(id) ? (
+                                {user.friends.includes(pickedUser._id) ? (
+                                    <FollowButton type="default" onClick={onUnfollowClick} content="Following"/>
+                                ) : (
+                                    <FollowButton type="primary" onClick={onFollowClick} content="Follow"/>
+                                )}
+                            </div>
+                            <h3 className="user__title">Favorites</h3>
+                            {user.friends.includes(id) ? (
                                     films.length && !isLoading ? (
                                         <InfiniteScroll
                                             dataLength={films.length}
@@ -92,21 +91,20 @@ const UserInfoPage = () => {
                                             className="user__notification"
                                         />
                                     )
-                                    )
-                                    : (
-                                        <Empty
-                                            description="You have to follow user to see his favorites..."
-                                            className="user__notification"
-                                        />
-                                    )}
-                            </div>
-                        </>
-                    ) : (
-                        <Empty description="No user with this id"/>
-                    )
-                )}
-            </AppLayout>
-        </>
+                                )
+                                : (
+                                    <Empty
+                                        description="You have to follow user to see his favorites..."
+                                        className="user__notification"
+                                    />
+                                )}
+                        </div>
+                    </>
+                ) : (
+                    <Empty description="No user with this id"/>
+                )
+            )}
+        </AppLayout>
     );
 };
 

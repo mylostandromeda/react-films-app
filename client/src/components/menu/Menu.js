@@ -12,22 +12,24 @@ const MenuComponent = () => {
     };
 
     return (
-        <>
-            <Menu onClick={handleClick} selectedKeys={`/${location.pathname.split('/')[1]}`} mode="horizontal" className="menu">
-                <Menu.Item key="/films" className="menu__item">
-                    Films
-                </Menu.Item>
-                <Menu.Item key="/users" className="menu__item">
-                    Users
-                </Menu.Item>
-                <Menu.Item key="/likes" className="menu__item">
-                    Liked
-                </Menu.Item>
-                <Menu.Item key="/favorites" className="menu__item">
-                    Favorites
-                </Menu.Item>
-            </Menu>
-        </>
+        <Menu onClick={handleClick} selectedKeys={`/${location.pathname.split('/')[1]}`} mode="horizontal"
+              className="menu">
+            <Menu.Item key="/films" className="menu__item">
+                Films
+            </Menu.Item>
+            <Menu.Item key="/users" className="menu__item">
+                Users
+            </Menu.Item>
+            <Menu.Item key="/friends" className="menu__item">
+                Friends
+            </Menu.Item>
+            <Menu.Item key="/likes" className="menu__item">
+                Likes
+            </Menu.Item>
+            <Menu.Item key="/favorites" className="menu__item">
+                Favorites
+            </Menu.Item>
+        </Menu>
     );
 };
 

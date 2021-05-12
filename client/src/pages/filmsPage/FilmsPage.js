@@ -34,35 +34,33 @@ const FilmsPage = () => {
     };
 
     return (
-        <>
-            <AppLayout title="All Films" sider={true}>
-                <InfiniteScroll
-                    dataLength={films.length}
-                    next={fetchFilms}
-                    hasMore={hasMore}
-                    loader={<Loader/>}
-                    style={{height: 'initial', overflow: 'hidden'}}
-                    className="films__wrapper"
-                >
-                    <Search
-                        placeholder="Search film . . ."
-                        allowClear
-                        enterButton="Search"
-                        size="large"
-                        value={search}
-                        onSearch={onSearch}
-                        className="films__search"
-                        onChange={onSearchChange}
-                    />
-                    {films.map((film, index) => (
-                        <FilmCard key={index} data={film}/>
-                    ))}
-                    <div className="film-item film-item_gap"/>
-                    <div className="film-item film-item_gap"/>
-                    <div className="film-item film-item_gap"/>
-                </InfiniteScroll>
-            </AppLayout>
-        </>
+        <AppLayout title="All Films" sider={true}>
+            <InfiniteScroll
+                dataLength={films.length}
+                next={fetchFilms}
+                hasMore={hasMore}
+                loader={<Loader/>}
+                style={{height: 'initial', overflow: 'hidden'}}
+                className="films__wrapper"
+            >
+                <Search
+                    placeholder="Search film . . ."
+                    allowClear
+                    enterButton="Search"
+                    size="large"
+                    value={search}
+                    onSearch={onSearch}
+                    className="films__search"
+                    onChange={onSearchChange}
+                />
+                {films.map((film, index) => (
+                    <FilmCard key={index} data={film}/>
+                ))}
+                <div className="film-item film-item_gap"/>
+                <div className="film-item film-item_gap"/>
+                <div className="film-item film-item_gap"/>
+            </InfiniteScroll>
+        </AppLayout>
     );
 };
 

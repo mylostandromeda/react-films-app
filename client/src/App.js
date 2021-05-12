@@ -12,6 +12,7 @@ import {init} from "./store/actions/auth/auth";
 import FilmInfoPage from "./pages/filmInfoPage/FilmInfoPage";
 import LikesPage from "./pages/likesPage/LikesPage";
 import UserInfoPage from "./pages/userInfoPage/UserInfoPage";
+import FriendsPage from "./pages/friendsPage/FriendsPage";
 
 function App() {
     const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
                         </PrivateRoute>
                         <PrivateRoute exact path="/users">
                             <UsersPage/>
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/friends">
+                            <FriendsPage/>
                         </PrivateRoute>
                         <PrivateRoute exact path="/users/:id">
                             <UserInfoPage/>

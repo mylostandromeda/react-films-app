@@ -10,20 +10,18 @@ import PropTypes from 'prop-types';
 const AppLayout = ({children, title, sider}) => {
     const {Content} = Layout;
     return (
-        <>
-            <Layout className="app-layout">
-                <Header/>
-                {title && (<h1 className="app-layout__title">{title}</h1>)}
-                <Layout className="app-layout__content">
-                    <Content className="app-layout__form-wrapper">
-                        {children}
-                        {sider && (
-                            <Filter/>
-                        )}
-                    </Content>
-                </Layout>
+        <Layout className="app-layout">
+            <Header/>
+            {title && (<h1 className="app-layout__title">{title}</h1>)}
+            <Layout className="app-layout__content">
+                <Content className="app-layout__form-wrapper">
+                    {children}
+                    {sider && (
+                        <Filter/>
+                    )}
+                </Content>
             </Layout>
-        </>
+        </Layout>
     );
 };
 

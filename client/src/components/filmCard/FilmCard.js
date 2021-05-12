@@ -40,51 +40,53 @@ const FilmCard = ({data}) => {
 
 
     return (
-        <>
-            <div className="film-item">
-                <Card
-                    className="film-item__content"
-                    onClick={onCardClick}
-                    cover={
-                        data.image ? (
-                            <img
-                                alt="example"
-                                src={data.image.medium ? data.image.medium : data.image.original}
-                            />) : (
-                            <img
-                                height="295"
-                                width="210"
-                                alt="example"
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"
-                            />)
-                    }
-                    actions={[
-                        data.likes.includes(user._id)
-                            ? <LikeFilled
-                                onClick={onRemoveLikeClick}
-                                className="film-item__reaction"
-                            />
-                            : <LikeOutlined
-                                onClick={onLikeClick}
-                                className="film-item__reaction"
-                            />,
-                        user.favorites.includes(data.id)
-                            ? <StarFilled
-                                onClick={onRemoveStarClick}
-                                className="film-item__reaction"
-                            />
-                            : <StarOutlined
-                                onClick={onStarClick}
-                                className="film-item__reaction"
-                            />
-                    ]}
-                >
-                    <Meta
-                        title={data.name}
-                    />
-                </Card>
-            </div>
-        </>
+        <div className="film-item">
+            <Card
+                className="film-item__content"
+                onClick={onCardClick}
+                cover={
+                    data.image ? (
+                        <img
+                            alt="example"
+                            src={data.image.medium ? data.image.medium : data.image.original}
+                        />) : (
+                        <img
+                            height="295"
+                            width="210"
+                            alt="example"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png"
+                        />)
+                }
+                actions={[
+                    data.likes.includes(user._id)
+                        ? <LikeFilled
+                            onClick={onRemoveLikeClick}
+                            className="film-item__reaction"
+                            title="like"
+                        />
+                        : <LikeOutlined
+                            onClick={onLikeClick}
+                            className="film-item__reaction"
+                            title="like"
+                        />,
+                    user.favorites.includes(data.id)
+                        ? <StarFilled
+                            onClick={onRemoveStarClick}
+                            className="film-item__reaction"
+                            title="favorite"
+                        />
+                        : <StarOutlined
+                            onClick={onStarClick}
+                            className="film-item__reaction"
+                            title="favorite"
+                        />
+                ]}
+            >
+                <Meta
+                    title={data.name}
+                />
+            </Card>
+        </div>
     );
 };
 

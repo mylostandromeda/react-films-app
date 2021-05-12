@@ -24,31 +24,29 @@ const FavoritesPage = () => {
         dispatch(getFavoriteFilms(skip, limit, user._id));
     };
 
-    return(
-        <>
-            <AppLayout title="Your Favorites">
-                {isLoading ? (
-                    <Loader/>
-                ) : (filteredFilms.length ? (
-                        <InfiniteScroll
-                            dataLength={films.length}
-                            next={fetchFilms}
-                            hasMore={hasMore}
-                            loader={<Loader/>}
-                            style={{height: 'initial', overflow: 'hidden'}}
-                            className="films__wrapper"
-                        >
-                            {filteredFilms.map((film, index) =>
-                                <FilmCard key={index} data={film}/>
-                            )}
-                            <div className="film-item film-item_gap"/>
-                            <div className="film-item film-item_gap"/>
-                            <div className="film-item film-item_gap"/>
-                        </InfiniteScroll>
-                    ) : (<Empty description="No favorites" className="films__empty"/>)
-                )}
-            </AppLayout>
-        </>
+    return (
+        <AppLayout title="Your Favorites">
+            {isLoading ? (
+                <Loader/>
+            ) : (filteredFilms.length ? (
+                    <InfiniteScroll
+                        dataLength={films.length}
+                        next={fetchFilms}
+                        hasMore={hasMore}
+                        loader={<Loader/>}
+                        style={{height: 'initial', overflow: 'hidden'}}
+                        className="films__wrapper"
+                    >
+                        {filteredFilms.map((film, index) =>
+                            <FilmCard key={index} data={film}/>
+                        )}
+                        <div className="film-item film-item_gap"/>
+                        <div className="film-item film-item_gap"/>
+                        <div className="film-item film-item_gap"/>
+                    </InfiniteScroll>
+                ) : (<Empty description="No favorites" className="films__empty"/>)
+            )}
+        </AppLayout>
     );
 }
 
