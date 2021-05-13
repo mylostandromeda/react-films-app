@@ -1,3 +1,4 @@
+// dotenv should be used in config
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
@@ -15,13 +16,16 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// you ca nmake it to be just /api/login & api/register and have respective routers for each
 app.use('/api/auth', authRouter);
 app.use(authMiddleware);
+// it is an antipattern to call a collection in singular form, use plural instead
 app.use('/api/user', userRouter);
 app.use('/api/films', filmsRouter);
 app.use('/api/likes', likeRouter);
 app.use('/api/favorites', favoriteRouter);
 
+// please, make a separate errorHandler function to work with errors, like you did with routers
 app.use((err,
     req,
     res,

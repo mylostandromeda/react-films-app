@@ -15,6 +15,7 @@ import UserInfoPage from "./pages/userInfoPage/UserInfoPage";
 
 function App() {
     const dispatch = useDispatch();
+    // state => state.auth.isLoading - is one of selector functions which are stored in store folder
     const isLoading = useSelector(state => state.auth.isLoading);
 
     useEffect(()=>{

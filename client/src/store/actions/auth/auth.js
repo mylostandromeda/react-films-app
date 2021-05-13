@@ -1,3 +1,12 @@
+/* usually, in the store, for each entity you would have the following structure
+  store
+  |
+  -entity
+   |
+   entity.selectors.js
+   entity.actions.js
+   entity.reducers.js
+*/
 import * as api from '../../../api';
 import {
     AUTH,
@@ -7,7 +16,6 @@ import {
     FOLLOW_USER,
     UNFOLLOW_USER
 } from "../actionTypes";
-
 
 const setToken = token => localStorage.setItem('token', token);
 

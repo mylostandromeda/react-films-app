@@ -17,6 +17,7 @@ const LikesPage = () => {
         dispatch(clearData());
         dispatch(getLikedFilms(0, limit));
         return dispatch(clearFilmData());
+        //if there is no eslint in the project, then why do you use these comments?
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 

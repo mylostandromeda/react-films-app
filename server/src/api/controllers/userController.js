@@ -2,6 +2,7 @@ const {User} = require('../../models/userModel');
 
 module.exports.getCurrentUser = async (req, res) => {
     const {_id} = req.user;
+    // as far as I remember, no need to prefix id with '_', mongoose will handle it just fine
     const user = await User.findById(_id, {__v: 0, password: 0});
     res.json(user);
 };

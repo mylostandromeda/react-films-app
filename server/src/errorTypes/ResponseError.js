@@ -1,3 +1,4 @@
+// this comment is redundant
 /** Class representing a ResponseError. */
 class ResponseError extends Error {
   /**

@@ -10,13 +10,22 @@ import FilmCard from "../../components/filmCard/FilmCard";
 
 const FilmsPage = () => {
     const dispatch = useDispatch();
+    // if useSelector returns an object, it is good to provide
+    // a function comparator as a second argument, such as lodash's isEqual,
+    // because useSelector compares selector values by strict-equality
     const {films, skip, limit, search, hasMore, filters} = useSelector(state => state.films);
     const {Search} = Input;
 
     useEffect(()=> {
         dispatch(clearData());
-        dispatch(getFilms(0, limit, search,filters));
+        dispatch(getFilms(0, limit, search, filters));
+        // the useEffect callback may return a void function, in your case it does not.
+        // I assume you wanted to dispatch on unmount, in that case
+        // return () => {
+        // dispatch(clearFilmData());
+        // }
         return dispatch(clearFilmData());
+        //why is this comment here? If for dispatch, then don't be afraid of listing dispatch, it doesn't change on rerender
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[filters]);
 

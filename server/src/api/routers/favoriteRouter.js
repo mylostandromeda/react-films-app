@@ -7,6 +7,7 @@ const {
 } = require('../controllers/favoriteController');
 const {asyncWrapper} = require('../../helpers/helpers');
 
+// you can just pipe these methods, router.get().put().delete()...
 router.get('/', asyncWrapper(getUserFavorites));
 
 router.put('/:id', asyncWrapper(addFavorite));

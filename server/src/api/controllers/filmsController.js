@@ -3,6 +3,7 @@ const {Film} = require('../../models/filmModel');
 module.exports.getFilms = async (req, res) => {
     const {limit, skip, name, sort, ...filter} = req.query;
 
+    //just use destructuring assignment
     const sortValues = sort.split(' ');
     const sortObj = {
         [sortValues[0]]: sortValues[1] === 'ASC' ? 1 : -1,

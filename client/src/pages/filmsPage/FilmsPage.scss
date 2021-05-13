@@ -33,6 +33,7 @@
       &:hover {
         background: transparent;
         border: 1px solid $green-color;
+        // why not to have a variable for this?
         color: #000;
       }
     }

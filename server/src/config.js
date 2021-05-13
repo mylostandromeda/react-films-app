@@ -1,4 +1,6 @@
 module.exports = {
+  // please, use dotenv package that you installed to work with env values
+  // no need for these defaulting values
   JWT_SECRET: process.env.JWT_SECRET || 'andromeda',
   PORT: process.env.PORT || 8080,
   DB_USER: process.env.DB_USER || 'artur',
